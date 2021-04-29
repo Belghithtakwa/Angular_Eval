@@ -1,0 +1,112 @@
+<div class="container">
+  <form
+    class="well form-horizontal"
+    id="contact_form"
+    [formGroup]="formulaire"
+    (ngSubmit)="onSubmit()"
+  >
+    <h2><b>Registration Form</b></h2>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label">First Name</label>
+      <div class="col-md-4 inputGroupContainer">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fas fa-user"></i></span>
+          <input
+            [ngClass]="!nom?.invalid ? 'success-color' : 'error-color'"
+            name="first_name"
+            placeholder="First Name"
+            class="form-control"
+            type="text"
+            formControlName="nom"
+          />
+        </div>
+        <p style="color: red" *ngIf="nom?.invalid && nom?.touched">
+          invalide nom
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label">Last Name</label>
+      <div class="col-md-4 inputGroupContainer">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fas fa-user"></i></span>
+          <input
+            [ngClass]="!prenom?.invalid ? 'success-color' : 'error-color'"
+            name="last_name"
+            placeholder="Last Name"
+            class="form-control"
+            type="text"
+            formControlName="prenom"
+          />
+        </div>
+        <p style="color: red" *ngIf="prenom?.invalid && prenom?.touched">
+          invalide prenom
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label">E-Mail</label>
+      <div class="col-md-4 inputGroupContainer">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fas fa-envelope"></i></span>
+          <input
+            [ngClass]="!email?.invalid ? 'success-color' : 'error-color'"
+            name="email"
+            placeholder="E-Mail Address"
+            class="form-control"
+            type="text"
+            formControlName="email"
+          />
+        </div>
+        <p style="color: red" *ngIf="email?.invalid && email?.touched">
+          invalide email
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label">Age</label>
+      <div class="col-md-4 inputGroupContainer">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fas fa-user"></i></span>
+          <input
+            [ngClass]="!age?.invalid ? 'success-color' : 'error-color'"
+            name="age"
+            placeholder="Age"
+            class="form-control"
+            type="number"
+            formControlName="age"
+          />
+        </div>
+        <p style="color: red" *ngIf="age?.invalid && age?.touched">
+          invalide age
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label"></label>
+      <div class="col-md-4">
+        <br />
+        <button type="submit" class="btn btn-warning">
+          submit<span class="glyphicon glyphicon-send"></span>
+        </button>
+      </div>
+    </div>
+  </form>
+  <div>
+    <p>{{ nom?.value }}</p>
+    <p>{{ prenom?.value }}</p>
+    <p>{{ email?.value }}</p>
+    <p>{{ age?.value }}</p>
+  </div>
+  <div *ngFor="let item of utilisateurs">
+<div>{{item.nom}}</div>
+<div>{{item.prenom}}</div>
+<div>{{item.age}}</div>
+<div>{{item.email}}</div>
+  </div>
+</div>
