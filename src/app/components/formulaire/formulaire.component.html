@@ -97,16 +97,19 @@
       </div>
     </div>
   </form>
-  <div>
+  <div class="border border-warning">
     <p>{{ nom?.value }}</p>
     <p>{{ prenom?.value }}</p>
     <p>{{ email?.value }}</p>
     <p>{{ age?.value }}</p>
   </div>
-  <div *ngFor="let item of utilisateurs">
-<div>{{item.nom}}</div>
-<div>{{item.prenom}}</div>
-<div>{{item.age}}</div>
-<div>{{item.email}}</div>
+  <div *ngFor="let item of utilisateurs" class="border border-dark">
+    <ul>
+      <li>{{ item.nom }}</li>
+
+      <li>{{ item.prenom }}</li>
+      <li>{{ item.age }}</li>
+      <li>{{ item.email }}</li>
+    </ul>
   </div>
 </div>
